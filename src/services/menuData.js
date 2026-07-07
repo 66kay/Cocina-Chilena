@@ -51,13 +51,13 @@ export const menuData = [
   },
   {
     id: '6',
-    nombre: 'Manjar (Dulce de Leche)',
-    descripcion: 'Pasta dulce, suave y untuosa de cocción lenta de leche con azúcar. Ideal para comer solo, untar en galletas o acompañar postres chilenos.',
+    nombre: 'Churros con manjar',
+    descripcion: 'Crujientes churros fritos caseros espolvoreados con azúcar flor, ideales para untar en un delicioso y cremoso manjar casero.',
     precio: 1500,
     categoria: 'postres_bebidas',
     imagen: 'https://www.themealdb.com/images/media/meals/tmc6ai1782851531.jpg',
     colorGradiente: 'linear-gradient(135deg, #ffcc80, #e65100)',
-    ingredientes: ['Leche entera de vaca', 'Azúcar granulada', 'Bicarbonato de sodio', 'Esencia de vainilla']
+    ingredientes: ['Harina de trigo', 'Agua y sal', 'Aceite para freír', 'Azúcar flor', 'Manjar casero']
   },
   {
     id: '7',
