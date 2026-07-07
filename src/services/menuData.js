@@ -21,7 +21,7 @@ export const menuData = [
   },
   {
     id: '3',
-    nombre: 'Chilean-Style Sopaipillas',
+    nombre: 'Sopaipillas Chilenas',
     descripcion: 'Masas fritas tradicionales a base de harina y zapallo cocido molido. Crujientes por fuera, suaves por dentro y perfectas con pebre.',
     precio: 2000,
     categoria: 'entradas',
