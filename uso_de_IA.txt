@@ -1,0 +1,46 @@
+========================================================================
+           DOCUMENTACIÓN: USO DE INTELIGENCIA ARTIFICIAL (IA)
+========================================================================
+
+Este documento detalla cómo se utilizó la Inteligencia Artificial (IA) para agilizar, optimizar y ahorrar tiempo en el desarrollo del proyecto "Cocina Chilena".
+
+El uso de la IA actuó como un compañero de programación en pareja ("Pair Programmer"), acelerando tanto tareas rutinarias/básicas como el diseño de la arquitectura lógica.
+
+------------------------------------------------------------------------
+1. TAREAS BÁSICAS Y COTIDIANAS (Ahorro de Tiempo de Digitación)
+------------------------------------------------------------------------
+
+* Creación de Estructura de Datos (JSON / Listados):
+  En vez de escribir manualmente el array de los 9 platos tradicionales, sus ingredientes, precios ficticios en pesos chilenos y descripciones, la IA generó el listado estructurado a partir del listado en crudo que provee la API (TheMealDB).
+  
+  >> Ejemplo de Pregunta Genérica / Prompt:
+  "Tengo esta lista de platos chilenos con sus imágenes. Por favor, estructúramela en un array de JavaScript para React. Agrégale a cada plato un ID único, precio en CLP, descripción apetitosa, categoría y una lista de ingredientes principales."
+
+* Maquetación y Reseteo de Hojas de Estilos (CSS):
+  Configuración rápida de variables de colores, reseteo de márgenes y adaptabilidad para dispositivos móviles (Media Queries).
+  
+  >> Ejemplo de Pregunta Genérica / Prompt:
+  "Créame una hoja de estilos básica en CSS para un menú de comida que ordene las tarjetas en una cuadrícula (Grid) y que sea responsive, de modo que en celulares se vea en una sola columna."
+
+------------------------------------------------------------------------
+2. TAREAS COMPLEJAS Y ARQUITECTURA (Lógica e Infraestructura)
+------------------------------------------------------------------------
+
+* Gestión del Estado del Carrito (React State Management):
+  Implementar la lógica en React para agregar un elemento al carrito, pero con la validación de si ya existe. Si existe, incrementa su cantidad; si no, lo añade como un nuevo objeto. Esta es una lógica propensa a pequeños bugs que la IA genera al instante y sin errores.
+  
+  >> Ejemplo de Pregunta Genérica / Prompt:
+  "En un componente de React, ¿cómo puedo actualizar un estado de carrito (array de objetos) para que al agregar un plato verifique si ya existe por ID, incremente su cantidad en 1, y si no existe, lo agregue con cantidad inicial 1?"
+
+* Limpieza de Dependencias de Node (Optimización de Tamaño):
+  Identificación y eliminación de módulos y linters redundantes como `oxlint` o paquetes de tipos de TypeScript no necesarios para un proyecto en Javascript puro. Además, la IA ayudó a liberar el puerto ocupado por procesos huérfanos que bloqueaban los archivos de `node_modules` en Windows.
+
+------------------------------------------------------------------------
+3. CONCLUSIÓN: ¿CÓMO AGILIZÓ EL TRABAJO?
+------------------------------------------------------------------------
+
+El uso de la IA en este proyecto permitió:
+1. Reducir el tiempo de desarrollo de 2 días a pocas horas.
+2. Centrarse en las decisiones del negocio (la experiencia del menú) en lugar de escribir código repetitivo.
+3. Asegurar que el código final sea completamente funcional, limpio, libre de advertencias del compilador y listo para entregar como avance del curso.
+========================================================================

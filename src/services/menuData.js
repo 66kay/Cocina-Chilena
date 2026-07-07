@@ -2,92 +2,92 @@ export const menuData = [
   {
     id: '1',
     nombre: 'Pastel de Choclo',
-    descripcion: 'Pino de carne de vacuno picada, pechuga de pollo, pasas, aceitunas y huevo duro, cubierto con una cremosa pasta de maíz choclo gratinada con azúcar.',
+    descripcion: 'Pino de carne de vacuno picada, pechuga de pollo, pasas, aceitunas y huevo duro, cubierto con una cremosa pasta de maíz choclo gratinada al horno.',
     precio: 8500,
     categoria: 'fondos',
-    imagen: '',
+    imagen: 'https://www.themealdb.com/images/media/meals/47abic1782854326.jpg',
     colorGradiente: 'linear-gradient(135deg, #ffd175, #ff9800)',
     ingredientes: ['Choclo fresco picado', 'Carne de vacuno', 'Pechuga de pollo', 'Cebolla picada', 'Pasas de uva', 'Aceituna negra', 'Huevo duro', 'Albahaca y comino']
   },
   {
     id: '2',
-    nombre: 'Empanada de Pino',
+    nombre: 'Chilean Empanada (Empanada de Pino)',
     descripcion: 'Masa tradicional horneada rellena con un guiso jugoso de carne de vacuno picada, cebollas tiernas, huevo duro, aceitunas y pasas.',
     precio: 3000,
     categoria: 'entradas',
-    imagen: '',
+    imagen: 'https://www.themealdb.com/images/media/meals/q4xgij1782851193.jpg',
     colorGradiente: 'linear-gradient(135deg, #f5d0a9, #d35400)',
     ingredientes: ['Harina de trigo', 'Carne de vacuno picada', 'Cebollas', 'Huevo duro', 'Aceituna negra', 'Pasas de uva', 'Comino y manteca']
   },
   {
     id: '3',
-    nombre: 'Cazuela de Vacuno',
-    descripcion: 'Sopa casera tradicional chilena hecha con una tierna costilla de vacuno, papa entera, zapallo camote, choclo, porotos verdes y arroz.',
-    precio: 7500,
-    categoria: 'fondos',
-    imagen: '',
-    colorGradiente: 'linear-gradient(135deg, #fce8c3, #e67e22)',
-    ingredientes: ['Carne de vacuno con hueso', 'Papa entera', 'Trozos de zapallo', 'Trozo de choclo', 'Porotos verdes', 'Arroz', 'Zanahoria y pimentón']
+    nombre: 'Chilean-Style Sopaipillas',
+    descripcion: 'Masas fritas tradicionales a base de harina y zapallo cocido molido. Crujientes por fuera, suaves por dentro y perfectas con pebre.',
+    precio: 2000,
+    categoria: 'entradas',
+    imagen: 'https://www.themealdb.com/images/media/meals/45noa31782850540.jpg',
+    colorGradiente: 'linear-gradient(135deg, #ffb300, #c2185b)',
+    ingredientes: ['Harina de trigo', 'Zapallo cocido molido', 'Manteca vegetal', 'Sal', 'Polvos de hornear', 'Aceite para freír']
   },
   {
     id: '4',
-    nombre: 'Humitas Chilenas',
-    descripcion: 'Crema espesa de choclo molido sazonado con albahaca, cebolla y manteca de cerdo, envuelta en las mismas hojas de la mazorca y cocida al vapor.',
-    precio: 4000,
+    nombre: 'Empanadas Fritas de Queso',
+    descripcion: 'Empanadas fritas al momento rellenas con abundante queso mantecoso derretido y elástico dentro de una masa dorada y crujiente.',
+    precio: 2800,
     categoria: 'entradas',
-    imagen: '',
-    colorGradiente: 'linear-gradient(135deg, #ffe57f, #c0ca33)',
-    ingredientes: ['Choclo tierno molido', 'Albahaca fresca', 'Cebolla frita', 'Manteca', 'Hojas de choclo', 'Sal y leche']
+    imagen: 'https://www.themealdb.com/images/media/meals/9tllzd1782853513.jpg',
+    colorGradiente: 'linear-gradient(135deg, #ffe082, #ffb74d)',
+    ingredientes: ['Harina de trigo', 'Queso mantecoso', 'Sal', 'Leche o agua tibia', 'Aceite para freír']
   },
   {
     id: '5',
-    nombre: 'Completo Italiano',
-    descripcion: 'Un clásico nacional: salchicha en pan de completo alargado, coronado con una abundante capa de tomate picado, palta molida cremosa y mayonesa casera.',
-    precio: 3500,
-    categoria: 'entradas',
-    imagen: '',
-    colorGradiente: 'linear-gradient(135deg, #aed581, #2e7d32)',
-    ingredientes: ['Pan de completo', 'Salchicha (vienesa)', 'Tomate en cubitos', 'Palta Hass molida', 'Mayonesa', 'Sal y aderezos']
+    nombre: 'Leche Asada',
+    descripcion: 'Postre clásico chileno horneado a baño María elaborado con huevos, leche entera, azúcar y vainilla, cubierto con caramelo casero.',
+    precio: 3000,
+    categoria: 'postres_bebidas',
+    imagen: 'https://www.themealdb.com/images/media/meals/fnh40v1782853788.jpg',
+    colorGradiente: 'linear-gradient(135deg, #ffe082, #8d6e63)',
+    ingredientes: ['Leche entera', 'Huevos frescos', 'Azúcar para la mezcla', 'Azúcar para el caramelo', 'Esencia de vainilla']
   },
   {
     id: '6',
-    nombre: 'Mote con Huesillo',
-    descripcion: 'Bebida dulce tradicional sin alcohol que consiste en una base de huesillos (duraznos deshidratados) rehidratados y cocidos con azúcar y canela, acompañados de trigo mote cocido.',
-    precio: 2500,
+    nombre: 'Manjar (Dulce de Leche)',
+    descripcion: 'Pasta dulce, suave y untuosa de cocción lenta de leche con azúcar. Ideal para comer solo, untar en galletas o acompañar postres chilenos.',
+    precio: 1500,
     categoria: 'postres_bebidas',
-    imagen: '',
-    colorGradiente: 'linear-gradient(135deg, #ffb74d, #e65100)',
-    ingredientes: ['Huesillos (durazno seco)', 'Trigo mote cocido', 'Chancaca o azúcar rubia', 'Palito de canela', 'Cáscara de naranja']
+    imagen: 'https://www.themealdb.com/images/media/meals/tmc6ai1782851531.jpg',
+    colorGradiente: 'linear-gradient(135deg, #ffcc80, #e65100)',
+    ingredientes: ['Leche entera de vaca', 'Azúcar granulada', 'Bicarbonato de sodio', 'Esencia de vainilla']
   },
   {
     id: '7',
-    nombre: 'Chorrillana',
-    descripcion: 'Gran plato para compartir consistente en una montaña de papas fritas crujientes cubiertas con carne de vacuno picada, cebolla frita caramelizada y huevos fritos.',
-    precio: 12000,
-    categoria: 'fondos',
-    imagen: '',
-    colorGradiente: 'linear-gradient(135deg, #ffcc80, #d84315)',
-    ingredientes: ['Papas fritas abundantes', 'Carne de vacuno troceada', 'Cebollas en pluma', 'Huevos fritos', 'Aceite, sal y especias']
+    nombre: 'Chilean Dobladitas',
+    descripcion: 'Pan crujiente y laminado doblado en cuatro partes, preparado con abundante manteca. Clásico para las onces chilenas con mantequilla.',
+    precio: 2500,
+    categoria: 'entradas',
+    imagen: 'https://www.themealdb.com/images/media/meals/p6hgrj1782851874.jpg',
+    colorGradiente: 'linear-gradient(135deg, #f5d0a9, #8d6e63)',
+    ingredientes: ['Harina de trigo', 'Manteca derretida', 'Sal disuelta', 'Agua tibia', 'Yema de huevo para dorar']
   },
   {
     id: '8',
-    nombre: 'Sopaipillas con Pebre',
-    descripcion: 'Masa frita hecha a base de harina y zapallo cocido molido. Se acompaña de Pebre chileno fresco con tomate, cebolla, cilantro, ají verde y ajo.',
-    precio: 2000,
-    categoria: 'entradas',
-    imagen: '',
-    colorGradiente: 'linear-gradient(135deg, #ffb300, #c2185b)',
-    ingredientes: ['Harina', 'Zapallo camote cocido', 'Cilantro picado', 'Tomate y cebolla', 'Ají verde y aceite', 'Vinagre y sal']
+    nombre: 'Pastel de Papas (Chilean Potato Pie)',
+    descripcion: 'Plato reconfortante casero hecho de pino de carne sazonado, cubierto con una capa generosa de puré de papas y gratinado al horno con azúcar.',
+    precio: 7500,
+    categoria: 'fondos',
+    imagen: 'https://www.themealdb.com/images/media/meals/h031jy1782853081.jpg',
+    colorGradiente: 'linear-gradient(135deg, #fce8c3, #d35400)',
+    ingredientes: ['Papas para puré', 'Carne de vacuno picada', 'Cebolla picada', 'Huevo duro', 'Leche y mantequilla', 'Aceituna negra y pasas']
   },
   {
     id: '9',
-    nombre: 'Leche Asada',
-    descripcion: 'Postre clásico chileno horneado a baño María elaborado con huevos, leche y azúcar, formando un flan esponjoso cubierto de una salsa fina de caramelo.',
-    precio: 3000,
-    categoria: 'postres_bebidas',
-    imagen: '',
-    colorGradiente: 'linear-gradient(135deg, #ffe082, #8d6e63)',
-    ingredientes: ['Leche entera', 'Huevos frescos', 'Azúcar para la mezcla', 'Azúcar para el caramelo', 'Esencia de vainilla']
+    nombre: 'Porotos Granados (Chilean Bean Stew)',
+    descripcion: 'Guiso de verano tradicional con porotos granados, zapallo camote, choclo desgranado y albahaca fresca. Nutritivo, espeso y sabroso.',
+    precio: 6500,
+    categoria: 'fondos',
+    imagen: 'https://www.themealdb.com/images/media/meals/nimml81782855200.jpg',
+    colorGradiente: 'linear-gradient(135deg, #ffe57f, #c0ca33)',
+    ingredientes: ['Porotos granados', 'Zapallo camote', 'Choclo desgranado', 'Cebolla', 'Albahaca fresca', 'Ajo y ají de color']
   }
 ];
 
