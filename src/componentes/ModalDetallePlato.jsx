@@ -1,10 +1,10 @@
 import React from 'react';
-import { formatCLP } from '../services/menuData';
+import { formatearCLP } from '../servicios/datosMenu';
 
-function DishDetailModal({ dish, onClose, onAddToCart }) {
-  if (!dish) return null;
+function ModalDetallePlato({ plato, onClose, onAgregarCarrito }) {
+  if (!plato) return null;
 
-  // Handle clicking outside the modal content to close
+  // Cerrar al hacer clic fuera del contenido del modal (en el fondo)
   const handleBackdropClick = (e) => {
     if (e.target.className === 'modal-backdrop') {
       onClose();
@@ -25,8 +25,8 @@ function DishDetailModal({ dish, onClose, onAddToCart }) {
         </button>
         
         <div className="modal-hero">
-          {dish.imagen ? (
-            <img src={dish.imagen} alt={dish.nombre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          {plato.imagen ? (
+            <img src={plato.imagen} alt={plato.nombre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           ) : (
             <span>[Foto de Referencia]</span>
           )}
@@ -34,28 +34,28 @@ function DishDetailModal({ dish, onClose, onAddToCart }) {
 
         <div className="modal-body">
           <span className="modal-category-tag">
-            {dish.categoria === 'fondos' ? 'Plato de Fondo' : 
-             dish.categoria === 'entradas' ? 'Entrada' : 'Postre / Bebida'}
+            {plato.categoria === 'fondos' ? 'Plato de Fondo' : 
+             plato.categoria === 'entradas' ? 'Entrada' : 'Postre / Bebida'}
           </span>
-          <h2>{dish.nombre}</h2>
-          <p className="modal-description">{dish.descripcion}</p>
+          <h2>{plato.nombre}</h2>
+          <p className="modal-description">{plato.descripcion}</p>
 
           <div className="ingredients-section">
             <h3>Ingredientes Principales:</h3>
             <ul className="ingredients-list">
-              {dish.ingredientes.map((ingredient, index) => (
-                <li key={index}>{ingredient}</li>
+              {plato.ingredientes.map((ingrediente, index) => (
+                <li key={index}>{ingrediente}</li>
               ))}
             </ul>
           </div>
 
           <div className="modal-footer">
-            <span className="modal-price">{formatCLP(dish.precio)}</span>
+            <span className="modal-price">{formatearCLP(plato.precio)}</span>
             <button 
               type="button" 
               className="btn-primary btn-large" 
               onClick={() => {
-                onAddToCart(dish);
+                onAgregarCarrito(plato);
                 onClose();
               }}
               id="btn-modal-add"
@@ -69,4 +69,4 @@ function DishDetailModal({ dish, onClose, onAddToCart }) {
   );
 }
 
-export default DishDetailModal;
+export default ModalDetallePlato;

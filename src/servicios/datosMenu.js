@@ -1,4 +1,4 @@
-export const menuData = [
+export const datosPlatos = [
   {
     id: '1',
     nombre: 'Pastel de Choclo',
@@ -91,17 +91,17 @@ export const menuData = [
   }
 ];
 
-export const categories = [
+export const categorias = [
   { id: 'todos', nombre: 'Todos' },
   { id: 'fondos', nombre: 'Platos de Fondo' },
   { id: 'entradas', nombre: 'Entradas' },
   { id: 'postres_bebidas', nombre: 'Postres y Bebidas' }
 ];
 
-export const formatCLP = (amount) => {
+export const formatearCLP = (monto) => {
   return new Intl.NumberFormat('es-CL', {
     style: 'currency',
     currency: 'CLP',
     minimumFractionDigits: 0
-  }).format(amount);
+  }).format(monto);
 };

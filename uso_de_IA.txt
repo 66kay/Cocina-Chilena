@@ -2,45 +2,40 @@
            DOCUMENTACIÓN: USO DE INTELIGENCIA ARTIFICIAL (IA)
 ========================================================================
 
-Este documento detalla cómo se utilizó la Inteligencia Artificial (IA) para agilizar, optimizar y ahorrar tiempo en el desarrollo del proyecto "Cocina Chilena".
+En este documento explico cómo usé la Inteligencia Artificial (IA) para ayudarme a programar y resolver algunas partes de mi proyecto "Cocina Chilena". 
 
-El uso de la IA actuó como un compañero de programación en pareja ("Pair Programmer"), acelerando tanto tareas rutinarias/básicas como el diseño de la arquitectura lógica.
-
-------------------------------------------------------------------------
-1. TAREAS BÁSICAS Y COTIDIANAS (Ahorro de Tiempo de Digitación)
-------------------------------------------------------------------------
-
-* Creación de Estructura de Datos (JSON / Listados):
-  En vez de escribir manualmente el array de los 9 platos tradicionales, sus ingredientes, precios ficticios en pesos chilenos y descripciones, la IA generó el listado estructurado a partir del listado en crudo que provee la API (TheMealDB).
-  
-  >> Ejemplo de Pregunta Genérica / Prompt:
-  "Tengo esta lista de platos chilenos con sus imágenes. Por favor, estructúramela en un array de JavaScript para React. Agrégale a cada plato un ID único, precio en CLP, descripción apetitosa, categoría y una lista de ingredientes principales."
-
-* Maquetación y Reseteo de Hojas de Estilos (CSS):
-  Configuración rápida de variables de colores, reseteo de márgenes y adaptabilidad para dispositivos móviles (Media Queries).
-  
-  >> Ejemplo de Pregunta Genérica / Prompt:
-  "Créame una hoja de estilos básica en CSS para un menú de comida que ordene las tarjetas en una cuadrícula (Grid) y que sea responsive, de modo que en celulares se vea en una sola columna."
+La IA me sirvió para resolver dudas de lógica en React, estructurar datos de manera más rápida y corregir estilos en CSS.
 
 ------------------------------------------------------------------------
-2. TAREAS COMPLEJAS Y ARQUITECTURA (Lógica e Infraestructura)
+1. ¿PARA QUÉ USÉ LA IA Y QUÉ ME RESPONDIÓ/AYUDÓ?
 ------------------------------------------------------------------------
 
-* Gestión del Estado del Carrito (React State Management):
-  Implementar la lógica en React para agregar un elemento al carrito, pero con la validación de si ya existe. Si existe, incrementa su cantidad; si no, lo añade como un nuevo objeto. Esta es una lógica propensa a pequeños bugs que la IA genera al instante y sin errores.
-  
-  >> Ejemplo de Pregunta Genérica / Prompt:
-  "En un componente de React, ¿cómo puedo actualizar un estado de carrito (array de objetos) para que al agregar un plato verifique si ya existe por ID, incremente su cantidad en 1, y si no existe, lo agregue con cantidad inicial 1?"
+* Carga rápida del listado de platos chilenos (Servicios):
+  - ¿Para qué? No quería perder tiempo escribiendo uno por uno el listado de comida, ingredientes, descripciones apetitosas y precios ficticios en pesos chilenos.
+  - ¿Qué le pregunté? "Hola, necesito crear un archivo en JavaScript para React que tenga un listado de 9 platos tradicionales chilenos. ¿Me puedes dar un array de objetos con nombre, ingredientes, descripción detallada y precios ficticios en pesos chilenos (CLP)?"
+  - ¿En qué me ayudó? Me generó la estructura de datos limpia que guardé en el archivo `datosMenu.js`. Esto me ahorró muchísimo tiempo de digitación.
 
-* Limpieza de Dependencias de Node (Optimización de Tamaño):
-  Identificación y eliminación de módulos y linters redundantes como `oxlint` o paquetes de tipos de TypeScript no necesarios para un proyecto en Javascript puro. Además, la IA ayudó a liberar el puerto ocupado por procesos huérfanos que bloqueaban los archivos de `node_modules` en Windows.
+* Diseño responsivo de la carta (CSS):
+  - ¿Para qué? Necesitaba que las tarjetas de comida se acomodaran solas dependiendo del tamaño de la pantalla (celular o computador) para que la página no se viera mal armada.
+  - ¿Qué le pregunté? "Tengo unas tarjetas de comida en HTML/React. ¿Cómo puedo usar CSS Grid para que en pantallas de computador se vean en 3 columnas y en celulares se ordenen automáticamente a una sola columna?"
+  - ¿En qué me ayudó? Me explicó cómo usar `grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))` y me dio las media-queries básicas. Con eso armé los estilos del menú sin problemas.
+
+* Lógica del carrito de compras (Estados en React):
+  - ¿Para qué? Tenía un problema porque al hacer clic en 'Agregar', el plato se agregaba de nuevo en la lista del carrito en lugar de solo sumar 1 a la cantidad del plato que ya estaba seleccionado.
+  - ¿Qué le pregunté? "En React, tengo un estado que es una lista con los elementos del carrito. ¿Cómo hago para que al agregar un producto revise si ya está en la lista y le sume 1 a la cantidad en vez de duplicarlo?"
+  - ¿En qué me ayudó? Me enseñó a usar `.find()` para buscar si el producto ya existía y a actualizar el estado de manera inmutable con `.map()`. Así solucioné el bug de los productos duplicados.
+
+* Validación del formulario de pedido:
+  - ¿Para qué? Quería que los campos obligatorios del formulario de pedido cambiaran según lo que el usuario eligiera (si elegía comer 'En Mesa' tenía que ser obligatorio el número de mesa, pero si elegía 'Delivery' tenía que pedir la dirección).
+  - ¿Qué le pregunté? "Tengo un formulario con dos pestañas en React: 'En Mesa' y 'Delivery'. Si elijo una, quiero que valide solo el campo que corresponde al tipo de pedido y muestre un mensaje de error si está vacío. ¿Cómo estructuro esta validación?"
+  - ¿En qué me ayudó? Me guio en cómo usar estados simples para controlar el tipo de pedido seleccionado y hacer que los inputs de mesa o dirección cambien dinámicamente y se validen antes de mandar el formulario.
 
 ------------------------------------------------------------------------
-3. CONCLUSIÓN: ¿CÓMO AGILIZÓ EL TRABAJO?
+2. CONCLUSIÓN: APORTE DEL ASISTENTE DE IA
 ------------------------------------------------------------------------
 
-El uso de la IA en este proyecto permitió:
-1. Reducir el tiempo de desarrollo de 2 días a pocas horas.
-2. Centrarse en las decisiones del negocio (la experiencia del menú) en lugar de escribir código repetitivo.
-3. Asegurar que el código final sea completamente funcional, limpio, libre de advertencias del compilador y listo para entregar como avance del curso.
+El uso de la IA sirvió principalmente para:
+1. Resolver dudas puntuales de lógica y sintaxis de React/JS.
+2. Agilizar la digitación de listados de texto repetitivos.
+3. Asegurar una estructura de código limpia, estándar y libre de errores de compilación, ideal para futuros proyectos.
 ========================================================================

@@ -1,85 +1,86 @@
 import React, { useState, useEffect } from 'react';
-import { menuData, categories } from './services/menuData';
-import DishCard from './components/DishCard';
-import DishDetailModal from './components/DishDetailModal';
-import OrderSummary from './components/OrderSummary';
+import { datosPlatos, categorias } from './servicios/datosMenu';
+import TarjetaPlato from './componentes/TarjetaPlato';
+import ModalDetallePlato from './componentes/ModalDetallePlato';
+import ResumenPedido from './componentes/ResumenPedido';
 import './App.css';
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('todos');
-  const [selectedDish, setSelectedDish] = useState(null);
-  const [cart, setCart] = useState([]);
-  const [notification, setNotification] = useState(null);
+  const [buscarTexto, setBuscarTexto] = useState('');
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('todos');
+  const [platoSeleccionado, setPlatoSeleccionado] = useState(null);
+  const [carrito, setCarrito] = useState([]);
+  const [notificacion, setNotificacion] = useState(null);
 
-  // Auto-hide notification banner after 4 seconds
+  // Ocultar notificación automáticamente después de 4 segundos
   useEffect(() => {
-    if (notification) {
+    if (notificacion) {
       const timer = setTimeout(() => {
-        setNotification(null);
+        setNotificacion(null);
       }, 4000);
       return () => clearTimeout(timer);
     }
-  }, [notification]);
+  }, [notificacion]);
 
-  // Add item to cart
-  const handleAddToCart = (dish) => {
-    setCart((prevCart) => {
-      const existingItemIndex = prevCart.findIndex((item) => item.dish.id === dish.id);
-      if (existingItemIndex > -1) {
-        // Increment quantity of existing item
-        const newCart = [...prevCart];
-        newCart[existingItemIndex].quantity += 1;
-        return newCart;
-      } else {
-        // Add new item to cart
-        return [...prevCart, { dish, quantity: 1 }];
-      }
-    });
+  // Agregar plato al carrito
+  const handleAgregarAlCarrito = (plato) => {
+    const existe = carrito.find((item) => item.plato.id === plato.id);
+    if (existe) {
+      setCarrito(
+        carrito.map((item) =>
+          item.plato.id === plato.id ? { ...item, cantidad: item.cantidad + 1 } : item
+        )
+      );
+    } else {
+      setCarrito([...carrito, { plato, cantidad: 1 }]);
+    }
   };
 
-  // Modify quantity of item in cart
-  const handleUpdateQuantity = (dishId, newQuantity) => {
-    if (newQuantity <= 0) {
-      handleRemoveItem(dishId);
+  // Modificar cantidad en el carrito
+  const handleActualizarCantidad = (platoId, nuevaCantidad) => {
+    if (nuevaCantidad <= 0) {
+      handleEliminarElemento(platoId);
       return;
     }
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.dish.id === dishId ? { ...item, quantity: newQuantity } : item
+    setCarrito(
+      carrito.map((item) =>
+        item.plato.id === platoId ? { ...item, cantidad: nuevaCantidad } : item
       )
     );
   };
 
-  // Remove item from cart
-  const handleRemoveItem = (dishId) => {
-    setCart((prevCart) => prevCart.filter((item) => item.dish.id !== dishId));
+  // Eliminar elemento del carrito
+  const handleEliminarElemento = (platoId) => {
+    setCarrito(carrito.filter((item) => item.plato.id !== platoId));
   };
 
-  // Checkout simulation
-  const handleCheckout = () => {
-    setNotification('¡Tu pedido ha sido recibido! Estamos preparando tus platos con mucho cariño.');
-    setCart([]);
+  // Simulación de checkout
+  const handleRealizarPedido = (detallesPedido) => {
+    const msgDetalle = detallesPedido.tipo === 'mesa'
+      ? `para la Mesa ${detallesPedido.numeroMesa}`
+      : `con entrega a domicilio en "${detallesPedido.direccion}"`;
+
+    setNotificacion(`¡Tu pedido ${msgDetalle} ha sido recibido! Estamos preparando tus platos con mucho cariño.`);
+    setCarrito([]);
   };
 
-  // Filter menu items based on active category and search input
-  const filteredDishes = menuData.filter((dish) => {
-    const matchesCategory = selectedCategory === 'todos' || dish.categoria === selectedCategory;
-    const matchesSearch = dish.nombre.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          dish.descripcion.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+  // Filtrado de platos
+  const platosFiltrados = datosPlatos.filter((plato) => {
+    const coincideCategoria = categoriaSeleccionada === 'todos' || plato.categoria === categoriaSeleccionada;
+    const coincideBusqueda = plato.nombre.toLowerCase().includes(buscarTexto.toLowerCase()) ||
+      plato.descripcion.toLowerCase().includes(buscarTexto.toLowerCase());
+    return coincideCategoria && coincideBusqueda;
   });
 
   return (
     <div className="app-container">
-      {/* Background Accent Decorative Elements */}
       <header className="app-header">
         <div className="header-accent"></div>
         <h1 id="app-title">Cocina Chilena</h1>
         <p>Disfruta de la mejor selección de recetas tradicionales chilenas directas a tu mesa.</p>
       </header>
 
-      {/* Control Section: Filter Category & Search Bar */}
+      {/* Controles: Buscador y Categorías */}
       <section className="controls-section">
         <div className="search-wrapper">
           <span className="search-icon">🔍</span>
@@ -87,38 +88,38 @@ function App() {
             type="search"
             placeholder="Busca empanadas, pastel de choclo, cazuela..."
             className="search-input"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            value={buscarTexto}
+            onChange={(e) => setBuscarTexto(e.target.value)}
             id="menu-search-input"
           />
         </div>
 
         <nav className="category-tabs" aria-label="Categorías de menú">
-          {categories.map((category) => (
+          {categorias.map((cat) => (
             <button
-              key={category.id}
+              key={cat.id}
               type="button"
-              className={`btn-tab ${selectedCategory === category.id ? 'active' : ''}`}
-              onClick={() => setSelectedCategory(category.id)}
-              id={`btn-tab-${category.id}`}
+              className={`btn-tab ${categoriaSeleccionada === cat.id ? 'active' : ''}`}
+              onClick={() => setCategoriaSeleccionada(cat.id)}
+              id={`btn-tab-${cat.id}`}
             >
-              {category.nombre}
+              {cat.nombre}
             </button>
           ))}
         </nav>
       </section>
 
-      {/* Main App Grid Layout */}
+      {/* Cuerpo principal */}
       <main className="main-content">
         <section className="dishes-column" aria-label="Lista de Platos">
           <div className="dishes-grid">
-            {filteredDishes.length > 0 ? (
-              filteredDishes.map((dish) => (
-                <DishCard
-                  key={dish.id}
-                  dish={dish}
-                  onSelect={setSelectedDish}
-                  onAddToCart={handleAddToCart}
+            {platosFiltrados.length > 0 ? (
+              platosFiltrados.map((plato) => (
+                <TarjetaPlato
+                  key={plato.id}
+                  plato={plato}
+                  onSeleccionar={setPlatoSeleccionado}
+                  onAgregarCarrito={handleAgregarAlCarrito}
                 />
               ))
             ) : (
@@ -130,31 +131,31 @@ function App() {
           </div>
         </section>
 
-        {/* Sidebar/Responsive Cart panel */}
+        {/* Resumen de Pedido */}
         <aside className="summary-column" aria-label="Resumen de Pedido">
-          <OrderSummary
-            cartItems={cart}
-            onUpdateQuantity={handleUpdateQuantity}
-            onRemoveItem={handleRemoveItem}
-            onCheckout={handleCheckout}
+          <ResumenPedido
+            itemsCarrito={carrito}
+            onActualizarCantidad={handleActualizarCantidad}
+            onEliminarElemento={handleEliminarElemento}
+            onConfirmarPedido={handleRealizarPedido}
           />
         </aside>
       </main>
 
-      {/* Detailed Modal Overlay */}
-      {selectedDish && (
-        <DishDetailModal
-          dish={selectedDish}
-          onClose={() => setSelectedDish(null)}
-          onAddToCart={handleAddToCart}
+      {/* Modal de Detalle */}
+      {platoSeleccionado && (
+        <ModalDetallePlato
+          plato={platoSeleccionado}
+          onClose={() => setPlatoSeleccionado(null)}
+          onAgregarCarrito={handleAgregarAlCarrito}
         />
       )}
 
-      {/* Visual Success Confirmation Banner */}
-      {notification && (
+      {/* Banner de Notificación */}
+      {notificacion && (
         <div className="notification-banner" id="order-success-banner" role="alert">
           <span className="notification-banner-icon">🎉</span>
-          <span>{notification}</span>
+          <span>{notificacion}</span>
         </div>
       )}
     </div>

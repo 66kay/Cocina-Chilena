@@ -1,34 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --primary: #c0392b; /* Rojo chileno elegante */
-  --primary-hover: #e74c3c;
-  --secondary: #2c3e50; /* Azul pizarra andino */
-  --bg: #faf9f6; /* Crema cálido muy suave */
+  --primary: #b33921; /* Terracota profundo chileno */
+  --primary-hover: #cd4426;
+  --secondary: #1e272e; /* Carbón pizarra elegante */
+  --bg: #faf8f5; /* Blanco cálido tipo lino */
   --card-bg: #ffffff;
-  --text: #2d3436;
-  --text-muted: #636e72;
-  --border: #f1f2f6;
+  --text: #2c3e50;
+  --text-muted: #7f8c8d;
+  --border: #f1ebd9; /* Borde sutil color crema */
+  --accent: #d4af37; /* Toques dorados para detalles premium */
+  
   --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.1);
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  
+  /* Sombras profesionales de múltiples niveles */
+  --shadow-sm: 0 2px 8px rgba(179, 57, 33, 0.03);
+  --shadow-md: 0 10px 30px -10px rgba(30, 39, 46, 0.08);
+  --shadow-lg: 0 20px 40px -15px rgba(30, 39, 46, 0.12);
+  
   --font: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #121214;
-    --card-bg: #1c1c1f;
+    --bg: #0f1013;
+    --card-bg: #16171b;
     --text: #f5f6fa;
-    --text-muted: #a0a0aa;
-    --border: #2a2a2e;
-    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.4);
+    --text-muted: #95a5a6;
+    --secondary: #ffffff;
+    --border: #222429;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
   }
 }
 
